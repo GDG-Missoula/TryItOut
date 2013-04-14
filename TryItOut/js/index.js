@@ -35,6 +35,10 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
         navigator.splashscreen.hide();
+        navigator.compass.watchHeading(function(heading) {
+            
+            document.getElementById('heading').innerHTML = "Heading "+heading.magneticHeading + " degrees";
+        });
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
